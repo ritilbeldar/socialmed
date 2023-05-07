@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Details</title>
+    <link rel="stylesheet" href="/stylesheets/allfrom.css">
+</head>
+<body>
+    <div class="main">
+        <div class="main-left">
+            <h1>Add Details</h1>
+            <form action="/api/v1/register2" method="post" >
+                <div class="main-left-name">
+                    <h3>Enrollment</h3>
+                    <div class="name-input" id="username">
+                        <input name="enrollment" type="text" placeholder="Enrollment">
+                    </div>
+                </div>
+                <div class="main-left-name">
+                    <h3>Username</h3>
+                    <div class="name-input" id="username">
+                        <input name="username" type="text" placeholder="Create Username">
+                    </div>
+                </div>
+                <div class="main-left-email">
+                    <h3>Date Of Birth</h3>
+                    <input name="dob" type="date" placeholder="DD/MM/YYYY">
+                </div>
+                <div class="main-left-password">
+                    <h3>Department</h3>
+                    <select id="Department" name="department"  >
+                        <option value="Select">Select Department</option>
+                        <option value="arabic">Department of Arabic</option>
+                        <option value="Aquaculture">Department of Applied Aquaculture</option>
+                        <option value="Bio Science">Department of Bio Science</option>
+                        <option value="Bio Technology">Department of Bio Technology</option>
+                        <option value="cs">Department of Computer Science and Application</option>
+                        <option value="CRIM">Department of CRIM</option>
+                        <option value="Continuing Education">Department of Continuing Education</option>
+                        <option value="Comparative">Department of Comparative Language and Culture</option>
+                        <option value="Commerce">Department of Commerce</option>
+                        <option value="Chemistry">Department of Chemistry</option>
+                        <option value="Earth Science">Department of Earth Science</option>
+                        <option value="Electronics">Department of Electronics</option>
+                        <option value="Environment">Department of Environment Science and Limnology</option>
+                        <option value="Genetics">Department of Genetics</option>
+                        <option value="Legal Studies">Department of Legal Studies and Research</option>
+                        <option value="Math">Department of Math</option>
+                        <option value="Microbiology">Department of Microbiology</option>
+                        <option value="Physics">Department of Physics</option>
+                        <option value="Pharmacy">Department of Pharmacy</option>
+                        <option value="Psychology">Department of Psychology</option>
+                        <option value="Persian">Department of Persian</option>
+                        <option value="Physical Education">Department of Physical Education</option>
+                        <option value="Regional">Department of Regional Planning and Economic Growth</option>
+                        <option value="Sociology">Department of Sociology</option>
+                        <option value="UIT">Department of UIT</option>
+                        <option value="Women Studies">Department of Women Studies</option>
+                        <option value="Yoga">Department of Yoga</option>
+
+
+
+                      </select>
+                </div>
+                <div class="main-left-password">
+                    <h3>Gender</h3>
+                    <select id="Department" name="gender">
+                        <option value="Select">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                      </select>
+                </div>
+                <div class="main-left-button">
+                    <button type="submit" id="sing-up">Submit</button>
+                </div>
+                <a href="/home">Home</a>
+            </form>
+        </div>
+        <div class="main-right"></div>
+    </div>
+</body>
+</html>

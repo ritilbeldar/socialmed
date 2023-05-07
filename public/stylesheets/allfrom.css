@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    padding: 1% 2% 0 2%;
+    background-color: skyblue;
+}
+.main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+}
+.main-left{
+    height: 100%;
+    width: 40%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.main-left h1{
+    font-weight: 400;
+}
+.main-left h3{
+    font-weight: 500;
+    margin-left: 2%;
+}
+.main-left input{
+    width: 28vmax;
+    height: 3vmax;
+    padding: 0 0 0 20px;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    border: .1px solid #898989;
+    font-size: 16px;
+    transition: .25s;
+}
+#username input{
+    width: 28vmax;
+    height: 3vmax;
+    padding: 0 0 0 20px;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    border: .1px solid #898989;
+    font-size: 16px;
+}
+#username input:focus{
+    background-color: rgba(135, 207, 235, 0.269);
+    font-size: 16px;
+}
+.main-left input::placeholder{
+    color: #A2A4AE;
+    font-weight: 500;
+    font-size: 16px;
+}
+.main-left input:focus{
+    background-color: rgba(135, 207, 235, 0.269);
+    font-size: 16px;
+}
+.main-left form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.main-left form input{
+    outline: none;
+
+}
+.main-left form input:hover{
+    border: 1px solid rgba(0, 0, 0, 0.333);
+}
+.main-left-name{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+.main-left-name input{
+    width: 14vmax;
+    height: 3vmax;
+}
+.main-left-password{
+    display: flex;
+    flex-direction: column;
+}
+.main h5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 70%; 
+    width: 8vmax;
+    margin-top: -28px;
+}
+.main h5 span{
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: -3%;
+}
+.main h5 input{
+    width: 12px;
+    border: none
+}
+.main-left-password{
+    gap: 8px;
+}
+.main-left-email input{
+    margin-top: 8px;
+}
+.main-left-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+.main-left-button button{
+    width: 28vmax;
+    height: 3vmax;
+    padding: 0 0 0 20px;
+    background-color: #E3DAF6;
+    border: none;
+    border-radius: 50px;
+    font-size: 17px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    transition: .25s;
+}
+.main-left-button button:hover{
+    width: 100%;
+    background-color: #6B48B6;
+    /* transform: scale(0.9); */
+    /* font-size: 15px; */
+    color: white;
+}
+.main-left-button a{
+    text-decoration: none;
+    width: 28vmax;
+    height: 3vmax;
+    padding: 0 0 0 20px;
+    border-radius: 50px;
+    font-size: 17px;
+    color: black;
+    cursor: pointer;
+    font-weight: 500;
+}
+#google{
+    border: 0.1px solid #898989;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: white;
+}
+.main-left p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.main-right{
+    height: 100%;
+    width: 60%;
+    background-color:  #dcdcea;
+}
+img{
+    height: 35px;
+}
+
+
+/* add details */
+
+
+.main-left-email input{
+    padding: 0 20px 0 20px;
+}
+.main-left-password select{
+    width: 28vmax;
+    height: 3vmax;
+    padding: 0 20px 0 20px;
+    background-color: white;
+    border: none;
+    border-radius: 50px;
+    border: .1px solid #898989;
+    font-size: 16px;
+    cursor: pointer;
+}
+.main option{
+    cursor: pointer;
+}
+
+/* login */
+
+.main-left-forget{
+    margin-top: -10px;
+    width: 10vmax;
+    margin-left: 68%;
+}
+.main-left-forget a{
+    text-decoration: none;
+    font-size: 16px;
+}
+.main-left span{
+    gap: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+.main-left h6 a{
+    margin-left: 0;
+    width: 4vmax;
+}
+.main-left span a{
+    text-decoration: none;
+}
+
+
+/* forget password */
+
+
+.main-left-forget h4{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}

@@ -1,0 +1,66 @@
+<%- include('partials/header')%>
+<body>
+    <div class="main">
+
+        <%- include('partials/navleft')%>
+
+
+        <%- include('partials/navtop')%>
+            <div class="main-right-bottom">
+                <div class="main-right-bottom-left">
+                <div class="main-profile">
+                    <div class="main-profile-bg-img">
+                        <img src="https://images.unsplash.com/photo-1549849171-09f62448709e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="">
+                    </div>
+                    <div class="main-profile-dp">
+                        <div class="main-profile-dp-left">
+                            <img src="https://images.unsplash.com/photo-1602233158242-3ba0ac4d2167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=436&q=80" alt="">
+                        </div>
+                        <div class="main-profile-dp-center home-profile-page-name-bottom-name">
+                            <h3>Ritik Beldar</h3>
+                            <h4>Deparment of computer science</h4>
+                            <h5>aal lage basti me hum to masti aal lage basti me hum to masti aal lage basti me hum to masti</h5>
+                            <div class="main-profile-dp-center-insta">
+                                <a href="#"><i class="ri-youtube-line"></i></a>
+                                <a href="#"><i class="ri-instagram-line"></i></a>
+                                <a href="#"><i class="ri-linkedin-line"></i></a>
+                            </div>
+                        </div>
+                        <div class="main-profile-dp-right">
+                            <a href="/edit-profile">Unfollow</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="profile-main-bottom-follow">
+                        <div class="profile-main-bottom-follow-top">
+                            <h3 class="Followers-button"><span>20</span> Followers</h3>
+                            <h3 class="following-button"><span>15</span> Following</h3>
+                        </div>
+                        <!-- <div class="profile-post-uplode">
+                            <%- include('partials/postuplode')%>
+                        </div> -->
+                    </div>
+                    <div class="main-profile-post">
+                        <%- include('partials/profile-post-sec')%>
+                        <!-- <!-- <%- include('partials/postsection')%>
+                        <!-- <%- include('partials/postsection')%> -->
+                    </div>
+                </div>
+
+               
+            </div>
+            <%- include('partials/notipar')%>
+        </div>
+        </div>
+
+       <!-- followers following pages start -->
+        
+       <%- include('partials/follow-ing')%>
+
+       <!-- followers following pages end -->
+       <%- include('partials/like-comm')%>
+
+
+    </div>
+
+    <%- include('partials/fotter')%>

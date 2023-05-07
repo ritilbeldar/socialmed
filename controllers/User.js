@@ -6,10 +6,18 @@ const { populate } = require("../models/User");
 const { sendEmail } = require("../middleware/sendEmail");
 const crypto = require("crypto");
 
-
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const {
+      name,
+      email,
+      password,
+      enrollment,
+      username,
+      dob,
+      department,
+      gender,
+    } = req.body;
 
     let user = await User.findOne({ email });
 
@@ -28,7 +36,12 @@ exports.register = async (req, res) => {
       email,
       password,
       avatar,
-     } );
+      enrollment,
+      username,
+      dob,
+      department,
+      gender,
+    });
 
     const token = await user.generateToken();
 
@@ -38,12 +51,113 @@ exports.register = async (req, res) => {
         expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
         httponly: true,
       })
+      // .redirect('/signup2')
+
       .json({
         success: true,
         message: "Registered Successfully..",
         user,
         token,
       });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+// exports.addDetails = async (req, res) => {
+//   try {
+//     const { enrollment, username, dob, department, gender   } = req.body;
+
+//     let user = await User.findById(req.user._id);
+//     // console.log(req.user._id);
+//     // console.log(user._id);
+
+//     if (!user) {
+//       return res
+//         .status(400)
+//         .json({ success: false, message: "User does not Exist" });
+//     }
+
+//     const avatar = req.file
+//       ? `/images/profilepic/${req.file.filename}`
+//       : "/images/profilepic/default.jpg";
+
+//         user = await User.findByIdAndUpdate(user._id, {
+
+//             enrollment: enrollment,
+//             username: username,
+//             dob: dob,
+//             department: department,
+//             gender: gender,
+//             avatar: avatar,
+
+//         });
+
+//     res
+//       .status(201)
+//       .json({
+//         success: true,
+//         message: "Added Successfully..",
+//         user,
+//       });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
+
+exports.addDetails = async (req, res) => {
+  try {
+    let user = await User.findById(req.user._id);
+    // console.log(req.user._id);.
+    // console.log(user.);
+
+    const { enrollment, username, dob, department, gender } = req.body;
+
+    if (!user) {
+      return res
+      .status(400)
+      .json({ success: false, message: "User does not Exist" });
+    }
+
+
+    const avatar = req.file
+      ? `/images/profilepic/${req.file.filename}`
+      : "/images/profilepic/default.jpg";
+    
+    
+      if (enrollment) {
+      user.enrollment = enrollment;
+    }
+
+    if (username) {
+      user.username = username;
+    }
+    if (dob) {
+      user.dob = dob;
+    }
+    if (department) {
+      user.department = department;
+    }
+    if (gender) {
+      user.gender = gender;
+    }
+    if (avatar) {
+      user.avatar = avatar;
+    }
+
+    await user.save();
+
+    res.status(201).json({
+      success: true,
+      message: "Added Successfully..",
+      user,
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -76,8 +190,6 @@ exports.login = async (req, res) => {
     }
 
     const token = await user.generateToken();
-
-    
 
     res
       .status(200)
@@ -282,7 +394,9 @@ exports.deleteMyProfile = async (req, res) => {
 exports.myProfile = async (req, res) => {
   try {
     const post = User.post;
-    const user = await User.findById(req.user._id).populate("post followers following");
+    const user = await User.findById(req.user._id).populate(
+      "post followers following"
+    );
 
     res.status(200).json({
       success: true,
@@ -375,8 +489,8 @@ exports.forgotPassword = async (req, res) => {
       await user.save();
 
       res.status(500).json({
-        success:false,
-        message:error.message,
+        success: false,
+        message: error.message,
       });
     }
   } catch (error) {
@@ -387,52 +501,51 @@ exports.forgotPassword = async (req, res) => {
   }
 };
 
-
-exports.resetPassword = async (req,res)=>{
+exports.resetPassword = async (req, res) => {
   try {
     const resetPasswordToken = crypto
       .createHash("sha256")
       .update(req.params.token)
       .digest("hex");
 
-      const user = await User.findOne({
-        resetPasswordToken,
-        resetPasswordExpire:{$gt: Date.now()},
+    const user = await User.findOne({
+      resetPasswordToken,
+      resetPasswordExpire: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "Token is invalid or has expired",
       });
+    }
 
-      if(!user){
-        return  res.status(401).json({
-          success:false,
-          message:"Token is invalid or has expired",
-        })
-      }
+    user.password = req.body.password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    await user.save();
 
-      user.password = req.body.password;
-      user.resetPasswordToken = undefined;
-      user.resetPasswordExpire= undefined;
-      await user.save();
-
-      res.status(200).json({
-        success:true,
-        message:"Password Updated"
-      })
-
+    res.status(200).json({
+      success: true,
+      message: "Password Updated",
+    });
   } catch (error) {
     res.status(500).json({
       success: false,
       message: error.message,
     });
   }
-
-}
+};
 
 exports.myPosts = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     const posts = [];
 
-    for (let i =0; i < user.post.length; i++){
-      const post = await Post.findById(user.post[i]).populate("likes comments.user");
+    for (let i = 0; i < user.post.length; i++) {
+      const post = await Post.findById(user.post[i]).populate(
+        "likes comments.user"
+      );
 
       posts.push(post);
     }

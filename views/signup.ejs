@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | <%= title%></title>
+    <link rel="stylesheet" href="/stylesheets/allfrom.css">
+</head>
+<body>
+    <div class="main">
+        <div class="main-left">
+            <h1>Sing Up</h1>
+            <form action="/api/v1/register" method="post">
+                <!-- <div class="main-left-email">
+                    <h3>Enrollment No.</h3>
+                        <input type="text" placeholder="Full Name">
+                </div> -->
+                <div class="main-left-email">
+                    <h3>Full Name</h3>
+                        <input name="name" type="text" placeholder="Full Name">
+                </div>
+                <div class="main-left-email">
+                    <h3>Email</h3>
+                    <input name="email" type="email" placeholder="Enter Your Email">
+                </div>
+                <div class="main-left-password">
+                    <h3>Password</h3>
+                        <input name="password" type="password" placeholder="Enter Your Password">
+                    </div>
+                <div class="main-left-button">
+                    <button id="sing-up">Sing up</button>
+                    <p>or</p>
+                    <!-- <button id="google"></button> -->
+                    <a href="#" id="google"><img src="/images/google_img__1_-removebg-preview.png" alt="">Sing up with google</a>
+                </div>
+
+            </form>
+        </div>
+        <div class="main-right"></div>
+    </div>
+</body>
+</html>

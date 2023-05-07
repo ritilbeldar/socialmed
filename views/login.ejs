@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | <%= title%></title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="/stylesheets/allfrom.css">
+
+
+
+
+</head>
+<body>
+    <div class="main">
+        <div class="main-left">
+            <h1>Signin</h1>
+            <form  action="/api/v1/login" method="post" >
+                <div class="main-left-email">
+                    <h3>Email</h3>
+                    <input name="email" type="email" placeholder="Enter Your Email">
+                </div>
+                <div class="main-left-password">
+                    <h3>Password</h3>
+                        <input name="password" type="password" placeholder="Enter Your Password">
+                    </div>
+                    <div class="main-left-forget">
+                        <a href="/forget">Forget password?</a>
+                    </div>
+                    <div class="main-left-button">
+                        <button type="submit" id="sing-up">Log in</button>
+                    </div>
+                    <span>Don't have an account?<a href="/singup">Sing up</a></span>
+            </form>
+        </div>
+        <div class="main-right"></div>
+    </div>
+</body>
+</html>
